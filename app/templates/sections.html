@@ -1,0 +1,11 @@
+<html>
+<body>
+  <h1>Sections</h1>
+
+  <ul>
+  {% for section in data._children %}
+  <li><a href="{{url_for('section', section_id=section.key)}}">{{ section.title }} ({{section.type}})</a></li>
+  {% endfor %}
+  </ul>
+</body>
+</html>

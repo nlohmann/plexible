@@ -1,0 +1,12 @@
+<html>
+<body>
+  <h1>Section {{data.title1}}</h1>
+
+  <ul>
+  {% for entry in data._children %}
+  <li><a href="{{url_for('entry', entry_id=entry.ratingKey)}}">{{ entry.title }}
+    {% if entry.leafCount %}({{entry.leafCount}} episodes){% endif %}</a></li>
+  {% endfor %}
+  </ul>
+</body>
+</html>
