@@ -49,6 +49,7 @@ def file(entry_id, file_id):
     full_data = get('/library/metadata/' + entry_id)['_children'][0]
     filename = full_data['_children'][0]['_children'][file_id]['file']
 
+    # FIXME: works only for unix-systems AND when script runs on same machine
     # serve file as static (strip trailing slash - it is added by the static
     # folder which is '/')
     return app.send_static_file(filename[1:])
