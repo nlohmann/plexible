@@ -7,7 +7,7 @@ import urllib
 import os.path
 
 # the URL for the Plex Media Server
-BASEURL = 'http://127.0.0.1:32400'
+BASEURL = 'http://172.16.200.10:32400'
 
 def get(path):
     """

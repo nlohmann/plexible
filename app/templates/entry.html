@@ -12,7 +12,7 @@
   <h2>Metadata</h2>
   <ul>
     <li>Year: {{full_data.year}}</li>
-    <li>Duration: {{(full_data.duration/3600000)|round(1)}}h</li>
+    <li>Duration: {% if (full_data.duration//3600000) > 0 %}{{(full_data.duration//3600000)}}h {% endif %} {% if (full_data.duration//60000)%60 > 0 %} {{(full_data.duration//60000)%60}} min{%endif%}</li>
     <li>Resolution: {{full_data._children.0.videoResolution}} ({{full_data._children.0.width}}x{{full_data._children.0.height}} @ {{full_data._children.0.videoFrameRate}})
       {% for fileobject in full_data._children.0._children %}
     <li>File: <a href="{{url_for('file', entry_id=full_data.ratingKey, file_id=loop.index0)}}">{{ fileobject.file }}</a> ({{(fileobject.size / 1048576)|round(2)}} MB)</li>
