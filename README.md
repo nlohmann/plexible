@@ -32,10 +32,7 @@ Which sets up a virtual environment and installs further Python packages.
 
 ### Configuration
 
-Before you run Plexible the first time, please review the file `config.py`. It contains several standard settings and should be OK for most cases. In particular, check the following settings:
-
-- `SERVER_NAME` determines where Plexible should be reachable.
-- `PLEX_SERVER_NAME` is the location of your Plex Media Server.
+Before you run Plexible the first time, please review the file `config.py`. It contains several standard settings and should be OK for most cases.
 
 ## Run Plexible
 
