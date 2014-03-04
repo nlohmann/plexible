@@ -1,18 +1,11 @@
-import argparse
 from app import app
 from flask import render_template
 
 import requests
 import json
 
-# set all available config arguments
-parser = argparse.ArgumentParser()
-parser.add_argument("--plex_address", "-a", help="set address of plexinstance", default="127.0.0.1")
-parser.add_argument("--plex_port", "-p", help="set port of plexinstance", default="32400")
-args = vars(parser.parse_args())
-
 # the URL for the Plex Media Server
-BASEURL = 'http://%(address)s:%(port)s' % {"address": args.get('plex_address'), "port": args.get('plex_port')}
+BASEURL = 'http://' +  app.config['PLEX_SERVER_NAME']
 
 def get(path):
     """
