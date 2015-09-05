@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template, jsonify
 
 import requests
 import json
@@ -20,25 +20,30 @@ def get(path):
 
     return data
 
+@app.route('/')
+def page_index():
+    data = get('/')
+    return jsonify(data)
 
 @app.route('/sections')
-def sections():
+def page_sections():
     data = get('/library/sections')
+    #return jsonify(data)
     return render_template("sections.html", data=data)
 
 @app.route('/sections/<section_id>')
-def section(section_id):
+def page_section(section_id):
     data = get('/library/sections/' + section_id + '/all')
     return render_template("section.html", data=data)
 
 @app.route('/entries/<entry_id>')
-def entry(entry_id):
+def page_entry(entry_id):
     data = get('/library/metadata/' + entry_id + '/children')
     full_data = get('/library/metadata/' + entry_id)['_children'][0]
     return render_template("entry.html", data=data, full_data=full_data, nice_data=json.dumps(full_data, indent=2))
 
 @app.route('/file/<entry_id>/<int:file_id>')
-def file(entry_id, file_id):
+def page_file(entry_id, file_id):
     full_data = get('/library/metadata/' + entry_id)['_children'][0]
     filename = full_data['_children'][0]['_children'][file_id]['file']
 

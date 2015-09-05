@@ -4,7 +4,7 @@
 
   <ul>
   {% for section in data._children %}
-  <li><a href="{{url_for('section', section_id=section.key)}}">{{ section.title }} ({{section.type}})</a></li>
+  <li><a href="{{url_for('page_section', section_id=section.key)}}">{{ section.title }} ({{section.type}})</a></li>
   {% endfor %}
   </ul>
 </body>

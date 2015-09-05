@@ -5,7 +5,7 @@
   <ul>
   <li><a href="/sections">All section</a></li>
   {% for entry in data._children %}
-  <li><a href="{{url_for('entry', entry_id=entry.ratingKey)}}">{{ entry.title }}
+  <li><a href="{{url_for('page_entry', entry_id=entry.ratingKey)}}">{{ entry.title }}
     {% if entry.leafCount %}({{entry.leafCount}} episodes){% endif %}</a></li>
   {% endfor %}
   </ul>

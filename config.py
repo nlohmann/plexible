@@ -6,4 +6,4 @@ APP_HOST = '0.0.0.0'
 APP_PORT = 1337
 
 # where the Plex Media Server is running
-PLEX_SERVER_NAME = '127.0.0.1:32400'
+PLEX_SERVER_NAME = '10.0.1.32:32400'
